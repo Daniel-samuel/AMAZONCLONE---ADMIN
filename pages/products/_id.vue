@@ -118,10 +118,12 @@
 export default {
   async asyncData({ $axios, params }) {
     try {
-      let categories = $axios.$get("http://localhost:8080/api/category");
-      let owners = $axios.$get("http://localhost:8080/api/owner");
+      let categories = $axios.$get(
+        "https://amazon-double.herokuapp.com/api/category"
+      );
+      let owners = $axios.$get("https://amazon-double.herokuapp.com/api/owner");
       let product = $axios.$get(
-        `http://localhost:8080/api/products/${params.id}`
+        `https://amazon-double.herokuapp.com/api/products/${params.id}`
       );
 
       const [categoryResponse, ownerResponse, productResponse] =
@@ -164,7 +166,7 @@ export default {
       data.append("photo", this.selectedFile, this.selectedFile.name);
 
       let result = await this.$axios.$put(
-        `http://localhost:8080/api/products/${this.$route.params.id}`,
+        `https://amazon-double.herokuapp.com/api/products/${this.$route.params.id}`,
         data
       );
       this.$router.push("/");

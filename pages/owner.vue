@@ -66,7 +66,9 @@
 export default {
   async asyncData({ $axios }) {
     try {
-      let response = await $axios.$get("http://localhost:8080/api/owner");
+      let response = await $axios.$get(
+        "https://amazon-double.herokuapp.com/api/owner"
+      );
       return {
         owners: response.owners,
       };
@@ -102,7 +104,7 @@ export default {
       //   };
 
       let response = await this.$axios.$post(
-        "http://localhost:8080/api/owner",
+        "https://amazon-double.herokuapp.com/api/owner",
         data
       );
 

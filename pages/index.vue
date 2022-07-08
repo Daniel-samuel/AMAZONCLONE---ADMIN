@@ -85,7 +85,9 @@
 export default {
   async asyncData({ $axios }) {
     try {
-      let response = await $axios.$get("http://localhost:8080/api/products");
+      let response = await $axios.$get(
+        "https://amazon-double.herokuapp.com/api/products"
+      );
       // console.log(response);
       return {
         products: response.products,
@@ -97,7 +99,7 @@ export default {
     async onDeleteProduct(id, index) {
       try {
         let response = await this.$axios.$delete(
-          `http://localhost:8080/api/products/${id}`
+          `https://amazon-double.herokuapp.com/api/products/${id}`
         );
         if (response.status) {
           this.products.splice(index, 1);

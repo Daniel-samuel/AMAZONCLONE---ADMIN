@@ -44,7 +44,9 @@
 export default {
   async asyncData({ $axios }) {
     try {
-      let response = await $axios.$get("http://localhost:8080/api/category");
+      let response = await $axios.$get(
+        "https://amazon-double.herokuapp.com/api/category"
+      );
       return {
         categories: response.categories,
       };
@@ -62,7 +64,7 @@ export default {
       try {
         let data = { type: this.type };
         let response = await this.$axios.$post(
-          "http://localhost:8080/api/category",
+          "https://amazon-double.herokuapp.com/api/category",
           data
         );
         this.categories.push(data);
